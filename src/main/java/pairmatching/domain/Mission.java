@@ -19,11 +19,10 @@ public enum Mission {
     }
 
     public Mission getMissionByName(String name) {
-        for (Mission mission : Mission.values()) {
-            if (mission.name.equals(name)) {
-                return mission;
-            }
+        try{
+            return Mission.valueOf(name);
+        } catch (Exception e){
+            return null;
         }
-        return null;
     }
 }
