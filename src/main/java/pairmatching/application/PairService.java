@@ -46,6 +46,10 @@ public class PairService {
         return pairs;
     }
 
+    public void deleteAllPair(){
+        pairMatchingRegistry.deleteAllPair();
+    }
+
     private List<Pair> matchPair(DetailRequest detailRequest, List<Crew> crews) {
         List<String> shuffledCrew = Randoms.shuffle(getCrewsName(crews));
         List<Pair> pairs = new ArrayList<>();

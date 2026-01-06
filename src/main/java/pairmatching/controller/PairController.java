@@ -37,18 +37,18 @@ public class PairController {
         registerCrews();
     }
 
-    private void doOneSequence(String optionNumber){
-        try{
+    private void doOneSequence(String optionNumber) {
+        try {
             if (optionNumber.equals("1")) {
                 matchPair();
             }
             if (optionNumber.equals("2")) {
                 readPairMatchingResult();
             }
-            if (optionNumber == "3") {
-
+            if (optionNumber.equals("3")) {
+                deletePairResult();
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             outputView.printErrorMessage(e.getMessage());
         }
     }
@@ -66,24 +66,30 @@ public class PairController {
         return inputView.readOptionNumber();
     }
 
-    private void matchPair(){
+    private void matchPair() {
         String missionDetail = readMissionDetail();
         List<Pair> pairs = pairService.runPairMatching(missionDetail);
         printPairResult(pairs);
     }
 
-    private String readMissionDetail(){
+    private String readMissionDetail() {
         outputView.printCourseInformation();
         return inputView.readMissionDetail();
     }
 
-    private void readPairMatchingResult(){
+    private void readPairMatchingResult() {
         String missionDetail = readMissionDetail();
         List<Pair> pairs = pairService.readPairMatchingResult(missionDetail);
         printPairResult(pairs);
     }
 
-    private void printPairResult(List<Pair> pairs){
+    private void printPairResult(List<Pair> pairs) {
         outputView.printPairMatchingResult(pairs);
     }
+
+    private void deletePairResult() {
+        pairService.deleteAllPair();
+        outputView.printResetSuccessMessage();
+    }
+
 }

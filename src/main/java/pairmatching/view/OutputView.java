@@ -21,6 +21,7 @@ public class OutputView {
             + "############################################";
     private static final String PAIR_MATCHING_RESULT_GUIDE = "페어 매칭 결과입니다.";
     private static final String SEPERATOR = " : ";
+    private static final String RESET_SUCCESS_GUIDE = "초기화 되었습니다.";
 
     public void printMainPage() {
         System.out.println(MAIN_PAGE_GUIDE);
@@ -39,6 +40,10 @@ public class OutputView {
 
     public void printErrorMessage(String message) {
         System.out.println(message);
+    }
+
+    public void printResetSuccessMessage(){
+        System.out.println(RESET_SUCCESS_GUIDE);
     }
 
     private void printEachPair(List<String> crews) {

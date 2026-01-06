@@ -58,4 +58,8 @@ public class PairMatchingRegistry {
 
         return result;
     }
+
+    public void deleteAllPair(){
+        pairs = new ArrayList<>();
+    }
 }
